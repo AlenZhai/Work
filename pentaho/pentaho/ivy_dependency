@@ -1,0 +1,8 @@
+<dependency org="org.apache.jackrabbit" name="jackrabbit-core" rev="2.4.2"/>
+<dependency org="org.apache.jackrabbit" name="jackrabbit-jcr-commons" rev="2.4.2"/>
+<dependency org="org.apache.jackrabbit" name="jackrabbit-spi" rev="2.4.2"/>
+<dependency org="org.apache.jackrabbit" name="jackrabbit-spi-commons" rev="2.4.2"/>
+<dependency org="log4j" name="log4j" rev="1.2.16"/>
+<dependency org="org.apache.tika" name="tika-core" rev="1.0"/>
+http://repo1.maven.org/maven2/org/apache/jackrabbit/jackrabbit-spi-commons/2.4.2/jackrabbit-spi-commons-2.4.2.jar
+

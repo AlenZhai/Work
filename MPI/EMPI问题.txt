@@ -1,0 +1,3 @@
+EMPI 合并问题 一个人的数据为多条且生成了多个EMPI 
+第三方程序调用时：解决方案：将其它EMPI合并到一个EMPI  这个EMPI为主EMPI其它EMPI为子EMPI 调用其中一个EMPI时返回所有的EMPI
+注册调用时：解决方案：如果注册数据和其中一个EMPI数据一致则返回主EMPI
