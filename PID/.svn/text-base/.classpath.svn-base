@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="resource"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jackson"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/PIDBase"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/common"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring3.2.3"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/quartz"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mybatis"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/empi"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JUnit4.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/solr"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/dbdrivers"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>

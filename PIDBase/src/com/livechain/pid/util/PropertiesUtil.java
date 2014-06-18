@@ -1,0 +1,44 @@
+package com.livechain.pid.util;
+
+public class PropertiesUtil {
+	public static String PERSON="person";
+	public static String CREATEDATE="createdate";
+	public static String OR=" or ";
+	public static String AND=" and ";
+	public static String PID="PID";
+	//public static String PHONE="phone";
+	public static String PHONES="phones";
+	public static String SIMILARITY="similarity";
+	public static String NAME="name";
+	public static String WEIGHT="weight";
+	public static String PNAME="pname";
+	public static String GENDER="gender";
+	public static String BIRTHDAY="birthday";
+	public static String TYPE="type";
+	public static String NUMBER="number";
+	public static String CREDENTIALS="credentials";
+	public static String COMMENT="comment";
+	public static String EMAIL="email";
+	public static String NICKNAME="nickname";
+	public static String REGISTERETYPE="registeretype";
+	public static String ADDRPROVINCE="addrprovince";
+	public static String ADDRCITY="addrcity";
+	public static String ADDRCOUNTY="addrcounty";
+	public static String ADDRTOWN="addrtown";
+	public static String ADDRVILLAGE="addrvillage";
+	public static String ADDRHOUSEID="addrhouseid";
+	public static String NATIONALITY="nationality";
+	public static String MARRIEDSTATUS="marriedstatus";
+	public static String NATION="nation";
+	public static String AGE="age";
+	public static String BOOLDTYPE="booldtype";
+	public static String RH="rh";
+	public static String WORKDATE="workdate";
+	public static String JOBTYPECODE="jobtypecode";
+	public static String EDUCATIONCODE="educationcode";
+	public static String DEGREECODE="degreecode";
+	public static String UNIQUE="unique";	
+	public static String ORGCODE="orgcode";
+	public static String SCORE="score";
+	public static String STATUS="status";
+}

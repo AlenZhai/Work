@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+    <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.2//EN"  
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<plugins> 
+	<plugin interceptor="org.mybatis.sqlinterceptor.StandStatementHandlerInterceptor">
+	 <property name="dialectClassName" value="org.myhibernate.dialect.StandMySQL5Dialect"/> 
+	  
+	  <!--<property name="dialectClassName" value="org.myhibernate.dialect.StandSQLServer2008Dialect"/> 
+	  --></plugin>	
+	  <plugin interceptor="org.mybatis.sqlinterceptor.StandResultSetHandlerInterceptor">		
+	  </plugin>	
+    </plugins>
+
+</configuration>

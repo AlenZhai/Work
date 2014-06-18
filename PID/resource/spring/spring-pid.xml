@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+		<!-- 系统参数 -->
+		<bean id="systemConfig" class="com.livechain.pid.util.SystemConfig" init-method="init" />
+		<!-- 系统上下文  -->
+		<bean id="standContext" class="com.livechain.pid.util.StandContextImpl" />
+		<!-- 默认数据校验类 -->
+		<bean id="validateLoader" class="com.livechain.pid.validater.ValidatonLoaderImpl" />
+		<bean id="standvalid" class="com.livechain.pid.validater.DataValidaterImpl" init-method="init" >
+		 <property name="loader" ref="validateLoader" />
+		 <property name="weightmMg" ref="weightManager" />
+		</bean>
+		<!--参数生成器-->
+		<bean id="paramBuilder" class="com.livechain.pid.parameter.StandParameterBuilder"></bean>
+		<!-- 默认持久化类 -->
+		<bean id="solrDao" class="com.livechain.pid.dao.SolrDaoSupportImpl">
+		<property name="solr" ref="solrSearch" />
+		<property name="solrIndex" ref="solrIndex" />
+		<property name="weightMgr" ref="weightManager" />
+		</bean>
+		<bean id="saveQueueData" class="com.livechain.pid.ws.init.HttpSaveQueueData">
+		<property name="url" value="http://192.168.0.187:8180/"/>
+		</bean>		
+		
+		<!--<bean id="saveQueueData" class="com.livechain.pid.rest.service.SaveQueueData">
+		<property name="dao" ref="logDao"/>
+		</bean>
+		--><!-- bean id="pidDao" class="com.livechain.pid.dao.MongoDaoSupportImpl" >
+		  <property name="table" value="personinfo" />
+		</bean>
+		<bean id="logDao" class="com.livechain.pid.dao.MongoDaoSupportWebImpl" >
+		  <property name="table" value="personindata" />
+		</bean>
+		<bean id="webDao" class="com.livechain.pid.dao.MongoDaoSupportWebImpl" parent="pidDao" >
+		 </bean -->
+		 <bean id="logDao" class="com.livechain.pid.dao.MSSQLDaoSupportImpl">		 
+		</bean>
+		<!-- 权重加载器 -->
+		<bean id="weightLoader" class="com.livechain.pid.weight.WeightLoaderImpl" />
+		<!-- 权重管理 器 -->
+		<bean id="weightManager" class="com.livechain.pid.weight.WeightMangerImpl" init-method="init" >
+		  <property name="loader" ref="weightLoader" />
+		</bean>
+		<!-- 异常管理类 -->
+		<bean id="exceptionManager" class="com.livechain.pid.exception.ExceptionManagerImpl" />
+		<!-- 接口服务类 这里的 bean id 更改需要 将 /WEB-INF/services/PID/META-INF/services.xml 中的 SpringBeanName 的值改成对应的-->
+		<bean id="pidwebservice" class="com.livechain.pid.ws.PIDWebServiceImpl" >
+		  <property name="exceptionManager" ref="exceptionManager" />
+		  <property name="valider" ref="standvalid" />
+		  <property name="context" ref="standContext" />
+		 <property name="logDao" ref="logDao" />
+		</bean>
+		<!-- solr 相关 -->
+		<bean id="solrIndex" class="com.livechain.pid.solr.SolrIndex">
+		<property name="url" value="http://192.168.0.187:8081/solr/mpi/" />
+		</bean>
+		<bean id="solrSearch" class="com.livechain.pid.solr.SolrSearch">
+		<property name="url" value="http://192.168.0.187:8081/solr/mpi/" />
+		</bean>
+		<!--注册PID服务类 -->
+		<bean id="commonHandler" class="com.livechain.pid.handler.REGPIDDataHandlerImpl" abstract="true">
+		<property name="pidDao" ref="solrDao" />		
+		<property name="exceptionManager" ref="exceptionManager" />
+		<property name="paraBuilder" ref="paramBuilder" />
+		<property name="weightManger" ref="weightManager" />
+		</bean>
+		<!--注册PID服务类 -->
+		<bean id="REGPID" class="com.livechain.pid.handler.REGPIDDataHandlerImpl" parent="commonHandler" />
+				
+		<!--根据个人自然信息获取PID服务类-->
+		<bean id="GETPID" class="com.livechain.pid.handler.GETPIDDataHandlerImpl" parent="commonHandler" />
+		<!-- 根据PID获取个人自然信息 -->
+		<bean id="PIDTODETAILS" class="com.livechain.pid.handler.PIDTODETAILSDataHandlerImpl" parent="commonHandler" /> 
+		<!-- 注册证件号 -->
+		<bean id="REGCARD" class="com.livechain.pid.handler.REGCARDDataHandlerImpl" parent="commonHandler" />
+		<!-- 根据证件号查询PID -->
+		<bean id="CARDTOPID" class="com.livechain.pid.handler.CARDTOPIDataHandlerImpl" parent="commonHandler" />
+		<!-- 根据证件号查询个人自然信息 -->
+		<bean id="CARDTODETAIL" class="com.livechain.pid.handler.CARDTODETAILDataHandlerImpl" parent="commonHandler" />
+		<!-- 更新个人自然信息 -->
+		<bean id="UPDATE" class="com.livechain.pid.handler.UPDATEDataHandlerImpl" parent="commonHandler" />
+		
+</beans>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<weights max="50" min="30">
+<field comment="姓名" name="pname" weight="20"></field>
+<field comment="性别" name="gender" weight="10"></field>
+<field comment="出生日期" name="birthday" weight="20"></field>
+<field comment="证件" name="credentials" >
+	<weight comment="身份证" type="01" value="50" unique="true"/>
+	<weight comment="医保卡" type="71" value="50" unique="true"/>
+</field>
+<field comment="电子邮件" name="email" weight="1" unique="true"></field>
+<field comment="昵称" name="nickname" weight="1"></field>
+<field comment="户籍类型代码" name="registeretype" weight="1"></field>
+<field comment="地址-省" name="addrprovince" weight="2"></field>
+<field comment="地址-市" name="addrcity" weight="2"></field>
+<field comment="地址-县" name="addrcounty" weight="2"></field>
+<field comment="地址-乡" name="addrtown" weight="2"></field>
+<field comment="地址-村" name="addrvillage" weight="2"></field>
+<field comment="地址-门牌号码" name="addrhouseid" weight="5"></field>
+<field comment="电话" name="phones" >
+	<weight comment="本人电话" type="01" value="10"  />
+	<weight comment="配偶电话" type="02" value="1" />
+	<weight comment="监护人电话" type="03" value="1" />
+	<weight comment="家庭电话" type="04" value="3" />	
+</field>
+<field comment="国籍" name="nationality" weight="1"></field>
+<field comment="婚姻状况代码" name="marriedstatus" weight="1"></field>
+<field comment="民族" name="nation" weight="1"></field>
+<field comment="年龄" name="age" weight="1"></field>
+<field comment="ABO血型" name="booldtype" weight="4"></field>
+<field comment="RH血型" name="rh" weight="1"></field>
+<field comment="参加工作日期" name="workdate" weight="3"></field>
+<field comment="职业类别代码" name="jobtypecode" weight="2"></field>
+<field comment="学历代码" name="educationcode" weight="3"></field>
+<field comment="学位代码" name="degreecode" weight="2"></field>
+<field comment="机构代码" name="orgcode" weight="1"></field>
+</weights>

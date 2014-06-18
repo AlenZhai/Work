@@ -1,0 +1,36 @@
+<serviceGroup>
+	<service name="pid" scope="application">
+		<description>provide mpi services</description>
+		<parameter name="ServiceObjectSupplier">
+			org.apache.axis2.extensions.spring.receivers.SpringAppContextAwareObjectSupplier
+		</parameter>
+		<parameter name="SpringBeanName">pidwebservice</parameter>
+		<operation name="execute">
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</operation>
+		<!--  operation name="echo">
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</operation-->
+		<excludeOperations>
+			<operation>getHandler</operation>
+			<operation>setHandler</operation>
+			<operation>getExceptionManager</operation>
+			<operation>setExceptionManager</operation>
+			
+			<!--  operation>setRequestParser</operation>
+			<operation>getResponseBuilder</operation>
+			<operation>setResponseBuilder</operation>
+			<operation>getSessionFactory</operation>
+			<operation>setSessionFactory</operation -->
+			<operation>getValider</operation>
+			<operation>setValider</operation>
+			<operation>strToJson</operation>
+			<operation>getContext</operation>
+			<operation>setContext</operation>
+			<operation>getLogDao</operation>
+			<operation>setLogDao</operation>
+		</excludeOperations>
+	</service>
+</serviceGroup>

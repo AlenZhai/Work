@@ -1,0 +1,59 @@
+﻿package com.livechain.pid.ws.init;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import com.livechain.pid.cache.DataSaveElement;
+import com.livechain.pid.cache.ECacheManager;
+import com.livechain.pid.dao.DaoSupport;
+import com.livechain.pid.rest.service.SaveQueueData;
+import com.livechain.pid.util.SpringContextUtil;
+
+
+/**
+ * 加载初始化信息
+ * @author alenzhai 2013-05-29
+ *
+ */
+public class SystemInit implements ServletContextListener{
+
+	public void contextDestroyed(ServletContextEvent sce) {
+		// TODO Auto-generated method stub
+		ServletContext context=sce.getServletContext();
+		//WeightMangerImpl manager=WeightMangerImpl.newInstance();
+		//manager.init();
+		//context.setAttribute("weightManager", manager);
+	}
+
+	public void contextInitialized(ServletContextEvent sce) {
+		// TODO Auto-generated method stub
+		System.out.println("System init");
+		Thread thread=new Thread(new ThreadRun());
+		thread.start();
+		
+		
+	}
+	@SuppressWarnings("unused")
+	private class ThreadRun implements Runnable{
+        
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			System.out.println("start thread save data");
+			SaveQueueData saveQueueData=(SaveQueueData)SpringContextUtil.getContext().getBean("saveQueueData");
+			while(true)
+			{
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				saveQueueData.saveQueueData();
+				System.out.println("queue size:"+ECacheManager.getNewInstance().getQueue().size());
+			}
+		}		
+	}
+
+}

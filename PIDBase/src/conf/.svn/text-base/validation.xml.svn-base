@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<validation>
+<field comment="姓名" name="pname" regx="^([\u4e00-\u9fa5]|([a-z,A-Z]\s*)){1,50}$">
+</field>
+<field comment="性别" name="gender" regx="^[0,1,2,9]{1}$" >
+</field>
+<field comment="出生日期" name="birthday" regx=""></field>
+<field comment="证件" name="credentials" >
+<regx comment="身份证" type="01" value="^[1-9]\d{5}(\d{2}|\d{4})(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0-1])(\d{3}|\d{3}[0-9,X,x])$"/>
+<regx comment="医保卡" type="71" value="^\d{5,20}$"/>
+</field>
+<field comment="电子邮箱" name="email" regx="^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$" >
+</field>
+<field comment="昵称" name="nickname" regx=""></field>
+<field comment="户籍类型代码" name="registeretype" regx=""></field>
+<field comment="地址-省" name="addrprovince" regx=""></field>
+<field comment="地址-市" name="addrcity" regx=""></field>
+<field comment="地址-县" name="addrcounty" regx=""></field>
+<field comment="地址-乡" name="addrtown" regx=""></field>
+<field comment="地址-村" name="addrvillage" regx=""></field>
+<field comment="地址-门牌号码" name="addrhouseid" regx=""></field>
+<field comment="国籍" name="nationality" regx=""></field>
+<field comment="婚姻状况代码" name="marriedstatus" regx=""></field>
+<field comment="民族" name="nation" regx=""></field>
+<field comment="年龄" name="age" regx=""></field>
+<field comment="ABO血型" name="booldtype" regx=""></field>
+<field comment="RH血型" name="rh" regx=""></field>
+<field comment="参加工作日期" name="workdate" regx=""></field>
+<field comment="职业类别代码" name="jobtypecode" regx=""></field>
+<field comment="学历代码" name="educationcode" regx=""></field>
+<field comment="学位代码" name="degreecode" regx=""></field>
+<field comment="机构代码" name="orgcodes" regx=""></field>
+<field comment="电话" name="phones" >
+	<regx comment="本人电话" type="01" value=""/>
+	<regx comment="其它电话" type="02" value=""/>
+</field>
+</validation>

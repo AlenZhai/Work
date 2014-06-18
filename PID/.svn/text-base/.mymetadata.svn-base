@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="PID"
+  id="myeclipse.1369011577390"
+  context-root="/PID"
+  j2ee-spec="5.0"
+  archive="PID.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
